@@ -34,7 +34,12 @@ const projects = [
     accent: "#a970ff",
     status: "AI SYSTEM ONLINE",
     visual: "ai",
+
+    // Live MedAssist application
+    url: "https://prachi-portfolio-ywltcrcerzhmwusmlksqcb.streamlit.app/",
+    live: true,
   },
+
   {
     no: "02",
     type: "IOT / PATENT",
@@ -52,6 +57,7 @@ const projects = [
     visual: "iot",
     patent: true,
   },
+
   {
     no: "03",
     type: "AUTOMATION",
@@ -78,13 +84,23 @@ function AIVisual({ accent }) {
     [Cpu, 120],
     [Activity, 240],
   ];
+
   return (
-    <div className="visual" style={{ "--accent": accent }} aria-hidden="true">
+    <div
+      className="visual"
+      style={{ "--accent": accent }}
+      aria-hidden="true"
+    >
       <span className="v-ring a" />
       <span className="v-ring b" />
-      <div className="v-orbit" style={{ inset: "calc(50% - 78px)" }}>
+
+      <div
+        className="v-orbit"
+        style={{ inset: "calc(50% - 78px)" }}
+      >
         {nodes.map(([Icon, angle]) => {
           const rad = (angle * Math.PI) / 180;
+
           return (
             <span
               key={angle}
@@ -99,9 +115,11 @@ function AIVisual({ accent }) {
           );
         })}
       </div>
+
       <div className="v-center">
         <Bot size={22} />
       </div>
+
       <span className="visual-label">CONTEXT / AI</span>
     </div>
   );
@@ -109,22 +127,41 @@ function AIVisual({ accent }) {
 
 function IoTVisual({ accent }) {
   return (
-    <div className="visual" style={{ "--accent": accent }} aria-hidden="true">
+    <div
+      className="visual"
+      style={{ "--accent": accent }}
+      aria-hidden="true"
+    >
       <span className="v-ring a" />
       <span className="v-ring b" />
+
       <span className="radar-sweep" />
+
       <div className="v-center">
         <BusFront size={20} />
       </div>
-      <span className="blip" style={{ left: "26%", top: "30%" }}>
-        <MapPin size={11} />
-      </span>
+
       <span
         className="blip"
-        style={{ right: "24%", bottom: "30%", animationDelay: "1.2s" }}
+        style={{
+          left: "26%",
+          top: "30%",
+        }}
+      >
+        <MapPin size={11} />
+      </span>
+
+      <span
+        className="blip"
+        style={{
+          right: "24%",
+          bottom: "30%",
+          animationDelay: "1.2s",
+        }}
       >
         <Radio size={11} />
       </span>
+
       <span className="visual-label">GPS / RFID</span>
     </div>
   );
@@ -132,31 +169,52 @@ function IoTVisual({ accent }) {
 
 function AutomationVisual({ accent }) {
   return (
-    <div className="visual" style={{ "--accent": accent }} aria-hidden="true">
+    <div
+      className="visual"
+      style={{ "--accent": accent }}
+      aria-hidden="true"
+    >
       <div className="flow">
         <span className="flow-node on">
           <TestTube2 size={16} />
         </span>
+
         <span className="flow-line" />
+
         <span className="flow-node">
           <Workflow size={16} />
         </span>
+
         <span className="flow-line" />
+
         <span className="flow-node">
           <ShieldCheck size={16} />
         </span>
       </div>
+
       <div className="bars">
         {[38, 62, 48, 78, 92].map((h, i) => (
-          <i key={i} style={{ height: `${h}%` }} />
+          <i
+            key={i}
+            style={{
+              height: `${h}%`,
+            }}
+          />
         ))}
       </div>
-      <span className="visual-label">TEST / BUILD / PASS</span>
+
+      <span className="visual-label">
+        TEST / BUILD / PASS
+      </span>
     </div>
   );
 }
 
-const visuals = { ai: AIVisual, iot: IoTVisual, automation: AutomationVisual };
+const visuals = {
+  ai: AIVisual,
+  iot: IoTVisual,
+  automation: AutomationVisual,
+};
 
 /* ---------------- section ---------------- */
 
@@ -164,7 +222,11 @@ export default function Projects() {
   return (
     <section id="projects" className="section alt">
       <div className="bg-grid" aria-hidden="true" />
-      <div className="glow g-left" aria-hidden="true" />
+
+      <div
+        className="glow g-left"
+        aria-hidden="true"
+      />
 
       <div className="container">
         <SectionHead
@@ -172,9 +234,16 @@ export default function Projects() {
           label="Work"
           meta="SELECTED SYSTEMS"
           kicker="SELECTED WORK"
-          lines={[["BUILT."], ["SHIPPED.", true]]}
+          lines={[
+            ["BUILT."],
+            ["SHIPPED.", true],
+          ]}
         >
-          <p>Real projects across AI, IoT and enterprise automation.</p>
+          <p>
+            Real projects across AI, IoT and enterprise
+            automation.
+          </p>
+
           <a
             className="btn btn-ghost link-btn-row"
             href={github}
@@ -182,7 +251,9 @@ export default function Projects() {
             rel="noreferrer"
           >
             <GitBranch size={15} />
+
             GitHub
+
             <ArrowUpRight size={15} />
           </a>
         </SectionHead>
@@ -199,31 +270,50 @@ export default function Projects() {
                 accent={project.accent}
                 tilt={2}
               >
-                <span className="project-ghost" aria-hidden="true">
+                <span
+                  className="project-ghost"
+                  aria-hidden="true"
+                >
                   {project.no}
                 </span>
 
                 <div>
                   <div className="project-type">
                     <Sparkles size={13} />
+
                     {project.type}
                   </div>
 
                   <div className="project-title-row">
-                    <span className="icon-box" style={{ "--size": "56px" }}>
-                      <Icon size={24} strokeWidth={1.5} />
+                    <span
+                      className="icon-box"
+                      style={{
+                        "--size": "56px",
+                      }}
+                    >
+                      <Icon
+                        size={24}
+                        strokeWidth={1.5}
+                      />
                     </span>
+
                     <div>
                       <h3>{project.title}</h3>
+
                       <h4>{project.subtitle}</h4>
                     </div>
                   </div>
 
-                  <p className="project-desc">{project.desc}</p>
+                  <p className="project-desc">
+                    {project.desc}
+                  </p>
 
                   <div className="project-tags">
                     {project.tags.map((tag) => (
-                      <span className="tag" key={tag}>
+                      <span
+                        className="tag"
+                        key={tag}
+                      >
                         {tag}
                       </span>
                     ))}
@@ -233,40 +323,61 @@ export default function Projects() {
                 <div className="project-side">
                   <div className="project-status">
                     <span className="dot" />
+
                     {project.status}
                   </div>
 
-                  <Visual accent={project.accent} />
+                  <Visual
+                    accent={project.accent}
+                  />
 
                   <div className="pstats">
-                    {project.stats.map(([value, label]) => (
-                      <div className="pstat" key={label}>
-                        <strong>
-                          <CountUp value={value} />
-                        </strong>
-                        <span>{label}</span>
-                      </div>
-                    ))}
+                    {project.stats.map(
+                      ([value, label]) => (
+                        <div
+                          className="pstat"
+                          key={label}
+                        >
+                          <strong>
+                            <CountUp value={value} />
+                          </strong>
+
+                          <span>{label}</span>
+                        </div>
+                      )
+                    )}
                   </div>
 
                   {project.patent && (
                     <div className="patent">
                       <ShieldCheck size={16} />
+
                       PATENT GRANTED / 2025
                     </div>
                   )}
 
+                  {/* Project Link */}
                   <a
                     className="project-open"
-                    href={github}
+                    href={project.url || github}
                     target="_blank"
                     rel="noreferrer"
-                    aria-label={`Open ${project.title} on GitHub`}
+                    aria-label={`Open ${project.title}`}
                   >
                     <span>
-                      <GitBranch size={15} />
-                      OPEN ON GITHUB
+                      {project.live ? (
+                        <>
+                          <Activity size={15} />
+                          LIVE DEMO
+                        </>
+                      ) : (
+                        <>
+                          <GitBranch size={15} />
+                          OPEN ON GITHUB
+                        </>
+                      )}
                     </span>
+
                     <ArrowUpRight size={15} />
                   </a>
                 </div>
@@ -274,7 +385,6 @@ export default function Projects() {
             );
           })}
         </div>
-
       </div>
     </section>
   );
